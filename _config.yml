@@ -1,0 +1,5 @@
+title: Movie Reviews
+collections:
+  reviews:
+    output: false
+    sort_by: date

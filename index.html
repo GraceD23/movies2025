@@ -1,0 +1,24 @@
+---
+layout: default
+---
+
+<section class="grid">
+  {% assign items = site.reviews | sort: "date" | reverse %}
+  {% for r in items %}
+    <article class="polaroid">
+      <div class="poster-frame">
+        <img class="poster" src="{{ r.poster }}" alt="{{ r.title }} poster" loading="lazy">
+      </div>
+
+      <h2 class="movie-title">{{ r.title }}</h2>
+
+      <div class="stars" aria-label="Rating: {{ r.rating }} out of 5">
+        {% include stars.html rating=r.rating %}
+      </div>
+
+      <div class="review">
+        {{ r.content | markdownify }}
+      </div>
+    </article>
+  {% endfor %}
+</section>

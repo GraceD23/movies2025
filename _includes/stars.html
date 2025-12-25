@@ -1,0 +1,8 @@
+{% assign rating = include.rating | default: 0 | plus: 0 %}
+{% for i in (1..5) %}
+  {% if i <= rating %}
+    <span class="star">★</span>
+  {% else %}
+    <span class="star star-empty">☆</span>
+  {% endif %}
+{% endfor %}
