@@ -50,17 +50,18 @@ body{
   max-width: 1200px;
   margin: 0 auto; 
   align-items: start;   /* center each card */
+  justify-items: cneter;
 }
 /* Very small phones: fall back to 1 column */
 @media (max-width: 360px){
-.reviews-grid{
+.grid{
 grid-template-columns: 1fr;
 }
 }
 
 /* Tablets / wider screens: more columns */
 @media (min-width: 768px){
-.reviews-grid{
+.grid{
 grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 }
