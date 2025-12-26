@@ -1,0 +1,119 @@
+/* Movie Reviews - style.css
+   Fixes:
+   - iPhone: 2 polaroids across (except very tiny phones)
+   - Desktop: up to 4 across
+   - Prevents posters/cards from blowing up if a browser default style leaks in
+*/
+
+:root{
+  --cream: #eeece0;
+  --maroon: #350a0d;
+  --text: #000000;
+}
+
+*{ box-sizing: border-box; }
+
+html, body{
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  background: var(--maroon);
+  color: var(--text);
+  font-family: "Oswald", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+/* HEADER */
+.header{
+  background: var(--cream);
+  padding: 16px 12px;
+}
+
+.header img{
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* GRID (reviews list) */
+.grid{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  padding: 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+  justify-items: center;
+  align-items: start;
+}
+
+/* Very small phones */
+@media (max-width: 360px){
+  .grid{ grid-template-columns: 1fr; }
+}
+
+/* Tablets */
+@media (min-width: 768px){
+  .grid{
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px){
+  .grid{ grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+/* POLAROID CARD */
+.polaroid{
+  background: var(--cream);
+  padding: 12px;
+  width: 100%;
+  max-width: 175px;  /* key control for iPhone 2-up */
+  border: 0;
+}
+
+/* Poster frame + poster */
+.poster-frame{
+  background: var(--cream);
+  padding: 8px;
+}
+
+.poster{
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  display: block;
+}
+
+/* Text */
+.movie-title{
+  margin: 10px 0 6px;
+  font-weight: 400;   /* Oswald Regular */
+  font-size: 16px;
+  line-height: 1.2;
+  color: var(--text);
+}
+
+.stars{
+  margin: 0 0 8px;
+  line-height: 1;
+  font-size: 18px;
+}
+
+.star-filled{ color: #000; }
+.star-empty{ color: rgba(0,0,0,0.35); }
+
+.review{
+  font-weight: 300;  /* Oswald Light */
+  font-size: 14px;
+  line-height: 1.35;
+  color: var(--text);
+}
+
+.review, .movie-title{ overflow-wrap: anywhere; }
